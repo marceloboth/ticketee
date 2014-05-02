@@ -20,6 +20,7 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </p>
+<<<<<<< HEAD
 
   <% number = 0 %>
   <%= f.fields_for :assets do |asset| %>
@@ -30,6 +31,12 @@
     </p>
   <% end %>
 
+=======
+  <p>
+    <%= f.label :asset, "File" %><br>
+    <%= f.file_field :asset %>
+  </p>
+>>>>>>> e93d9cd55d4bf5cbaff47feae4d9a01e58c7933b
   <%= f.submit %>
 
 <% end %>

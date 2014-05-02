@@ -58,8 +58,12 @@ class TicketsController < ApplicationController
     end
 
     def ticket_params
+<<<<<<< HEAD
       params.require(:ticket).permit(:title, :description,
         assets_attributes: [:asset])
+=======
+      params.require(:ticket).permit(:title, :description, :asset)
+>>>>>>> e93d9cd55d4bf5cbaff47feae4d9a01e58c7933b
     end
 
     def authorize_create!
