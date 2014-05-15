@@ -38,6 +38,10 @@ class TicketsController < ApplicationController
     end
   end
 
+  def show
+    @comment = @ticket.comments.build
+  end
+
   def destroy
     @ticket.destroy
     flash[:notice] = "Ticket has been deleted."

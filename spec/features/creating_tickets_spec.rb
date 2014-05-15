@@ -4,7 +4,6 @@ feature "Creating Tickets" do
   before do
     project = FactoryGirl.create(:project)
     user = FactoryGirl.create(:user)
-
     define_permission!(user, "view", project)
     define_permission!(user, "create tickets", project)
 
@@ -50,12 +49,13 @@ feature "Creating Tickets" do
     fill_in "Title", with: "Add documentation for blink tag"
     fill_in "Description", with: "Blink tag's speed attribute"
 
-    attach_file "File #1", "spec/fixtures/speed.txt"
+    attach_file "File #1", Rails.root.join("spec/fixtures/speed.txt")
 
     click_link "Add another file"
     attach_file "File #2", Rails.root.join("spec/fixtures/spin.txt")
 
     click_button "Create Ticket"
+
     expect(page).to have_content("Ticket has been created.")
 
     within("#ticket .assets") do
